@@ -41,17 +41,21 @@ jobs:
             matrix.os }})
         strategy:
             matrix:
-                eslint: [6]
+                eslint: [7]
                 node: [12.22.0, 12, 14.17.0, 14, 16, 18]
                 os: [ubuntu-latest]
                 include:
                     # On other platforms
                     - os: windows-latest
-                      eslint: 6
+                      eslint: 7
                       node: 18
                     - os: macos-latest
-                      eslint: 6
+                      eslint: 7
                       node: 18
+                    # On old ESLint versions
+                    - eslint: 6
+                      node: 18
+                      os: ubuntu-latest
                     # On the minimum supported ESLint/Node.js version
                     - eslint: 6.6.0
                       node: 12.22.0
@@ -72,8 +76,8 @@ jobs:
             - name: 📥 Install dependencies
               run: npm install
 
-            # - name: 📥 Install ESLint v${{ matrix.eslint }}
-            #   run: npm install --save-dev eslint@${{ matrix.eslint }}
+            - name: 📥 Install ESLint v${{ matrix.eslint }}
+              run: npm install --save-dev eslint@${{ matrix.eslint }}
 
             - name: ▶️ Run test script
               run: npm run test
