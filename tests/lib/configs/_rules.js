@@ -6,13 +6,12 @@
 
 const { Linter } = require("eslint")
 const {
-    ConfigArrayFactory,
-} = require("@eslint/eslintrc/lib/config-array-factory")
-const Validator = require("eslint/lib/shared/config-validator")
-const { rules: removedRules } = require("eslint/conf/replacements.json")
+    Legacy: { ConfigArrayFactory, ConfigValidator },
+} = require("@eslint/eslintrc")
 const {
     rules: PluginRulesIndex,
 } = require("@eslint-community/eslint-plugin-mysticatea")
+const { rules: removedRules } = require("./eslint-replacements.json")
 
 const coreRules = new Linter().getRules()
 const pluginRules = new Map(
@@ -31,6 +30,7 @@ const deprecatedRuleNames = new Set(
 const removedRuleNames = new Set(Object.keys(removedRules))
 
 const configFactory = new ConfigArrayFactory()
+const configValidator = new ConfigValidator()
 
 module.exports = {
     /**
@@ -40,7 +40,9 @@ module.exports = {
      * @returns {void}
      */
     validateConfig(config, source) {
-        Validator.validate(config, source, (ruleId) => allRules.get(ruleId))
+        configValidator.validate(config, source, (ruleId) =>
+            allRules.get(ruleId)
+        )
 
         /* istanbul ignore next */
         for (const ruleId of [].concat(
