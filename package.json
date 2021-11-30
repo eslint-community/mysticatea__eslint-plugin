@@ -41,7 +41,7 @@
     "coverage": "opener coverage/lcov-report/index.html",
     "codecov": "codecov --disable=gcov -t $CODECOV_TOKEN",
     "lint": "eslint lib scripts tests",
-    "test": "npm run -s lint && nyc mocha \"tests/lib/**/*.js\" --reporter dot",
+    "test": "nyc mocha \"tests/lib/**/*.js\" --reporter dot",
     "update": "node scripts/generate-browser-globals && node scripts/generate-configs && node scripts/generate-rules",
     "preversion": "run-s clean update test",
     "version": "eslint lib/rules --fix && git add lib",

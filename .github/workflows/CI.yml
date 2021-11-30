@@ -3,31 +3,66 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
   schedule:
     - cron: 0 0 * * 0
 
 jobs:
-  test:
-    name: Test
+  lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [12.x, 10.x, 8.x]
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
+
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
-          fetch-depth: 1
-      - name: Install Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
+          node-version: 18
+
       - name: Install Packages
         run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+  test:
+    name: Test (Node@${{ matrix.node }} - ESLint@${{ matrix.eslint }} - ${{ matrix.os }})
+    strategy:
+      matrix:
+        eslint: [6]
+        node: [8, 10, 12, 14, 16, 18]
+        os: [ubuntu-latest]
+        include:
+          # On other platforms
+          - os: windows-latest
+            eslint: 6
+            node: 18
+          - os: macos-latest
+            eslint: 6
+            node: 18
+          # On the minimum supported ESLint/Node.js version
+          - eslint: 6.6.0
+            node: 8.10.0
+            os: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node@${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install Packages
+        run: npm install
+
+      # - name: Install ESLint@${{ matrix.eslint }}
+      #   run: npm install eslint@${{ matrix.eslint }}
+
       - name: Test
-        run: npm test
-      - name: Send Coverage
-        run: npm run -s codecov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: npm run test
+
+      # - name: Send Coverage
+      #   run: npm run -s codecov
+      #   env:
+      #     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
