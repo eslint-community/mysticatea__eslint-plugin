@@ -1,4 +1,4 @@
 root: true
 extends:
-  - plugin:@eslint-community/mysticatea/es2015
-  - plugin:@eslint-community/mysticatea/+eslint-plugin
+    - plugin:@eslint-community/mysticatea/es2015
+    - plugin:@eslint-community/mysticatea/+eslint-plugin
