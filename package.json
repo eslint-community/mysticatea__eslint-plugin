@@ -1,6 +1,6 @@
 {
   "name": "@eslint-community/eslint-plugin-mysticatea",
-  "version": "13.0.0",
+  "version": "0.0.0-semantically-released",
   "description": "Additional ESLint rules.",
   "engines": {
     "node": ">=8.10.0"
@@ -25,7 +25,6 @@
   },
   "devDependencies": {
     "@eslint-community/eslint-plugin-mysticatea": "file:.",
-    "codecov": "^3.6.1",
     "eslint": "~6.6.0",
     "fs-extra": "^8.1.0",
     "globals": "^12.1.1",
@@ -39,7 +38,6 @@
   "scripts": {
     "clean": "rimraf .nyc_output coverage",
     "coverage": "opener coverage/lcov-report/index.html",
-    "codecov": "codecov --disable=gcov -t $CODECOV_TOKEN",
     "lint": "eslint lib scripts tests",
     "test": "nyc mocha \"tests/lib/**/*.js\" --reporter dot",
     "update": "node scripts/generate-browser-globals && node scripts/generate-configs && node scripts/generate-rules",
