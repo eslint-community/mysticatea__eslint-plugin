@@ -1,5 +1,5 @@
 {
-  "name": "@mysticatea/eslint-plugin",
+  "name": "@eslint-community/eslint-plugin-mysticatea",
   "version": "13.0.0",
   "description": "Additional ESLint rules.",
   "engines": {
@@ -24,7 +24,7 @@
     "vue-eslint-parser": "^7.0.0"
   },
   "devDependencies": {
-    "@mysticatea/eslint-plugin": "file:.",
+    "@eslint-community/eslint-plugin-mysticatea": "file:.",
     "codecov": "^3.6.1",
     "eslint": "~6.6.0",
     "fs-extra": "^8.1.0",
@@ -50,7 +50,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mysticatea/eslint-plugin.git"
+    "url": "https://github.com/eslint-community/eslint-plugin-mysticatea"
   },
   "keywords": [
     "eslint",
@@ -68,7 +68,7 @@
   "author": "Toru Nagashima",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mysticatea/eslint-plugin/issues"
+    "url": "https://github.com/eslint-community/eslint-plugin-mysticatea/issues"
   },
-  "homepage": "https://github.com/mysticatea/eslint-plugin#readme"
+  "homepage": "https://github.com/eslint-community/eslint-plugin-mysticatea#readme"
 }

@@ -9,12 +9,14 @@ const {
     ConfigArrayFactory,
 } = require("eslint/lib/cli-engine/config-array-factory")
 const Validator = require("eslint/lib/shared/config-validator")
-const { rules: PluginRulesIndex } = require("@mysticatea/eslint-plugin")
+const {
+    rules: PluginRulesIndex,
+} = require("@eslint-community/eslint-plugin-mysticatea")
 
 const coreRules = new Linter().getRules()
 const pluginRules = new Map(
     Object.keys(PluginRulesIndex).map(key => [
-        `@mysticatea/${key}`,
+        `@eslint-community/mysticatea/${key}`,
         PluginRulesIndex[key],
     ])
 )
@@ -88,11 +90,11 @@ module.exports = {
     getPluginRuleNames(pluginName) {
         return Object.keys(PluginRulesIndex)
             .filter(ruleId =>
-                pluginName === "mysticatea"
+                pluginName === "@eslint-community/mysticatea"
                     ? !ruleId.includes("/")
                     : ruleId.startsWith(`${pluginName}/`)
             )
-            .map(ruleId => `@mysticatea/${ruleId}`)
+            .map(ruleId => `@eslint-community/mysticatea/${ruleId}`)
             .filter(
                 ruleId =>
                     !deprecatedRuleNames.has(ruleId) &&

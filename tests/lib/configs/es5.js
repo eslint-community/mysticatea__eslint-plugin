@@ -26,7 +26,7 @@ describe("'es5.js'", () => {
     const configuredRules = Rules.getRulesOfConfig(config, "es5")
     const existingRules = [].concat(
         Rules.getCoreRuleNames(),
-        Rules.getPluginRuleNames("mysticatea"),
+        Rules.getPluginRuleNames("@eslint-community/mysticatea"),
         Rules.getPluginRuleNames("eslint-comments"),
         Rules.getPluginRuleNames("prettier")
     )
