@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/eslint-community/eslint-plugin-mysticatea/branch/master/graph/badge.svg)](https://codecov.io/gh/eslint-community/eslint-plugin-mysticatea)
 [![Dependency Status](https://david-dm.org/eslint-community/eslint-plugin-mysticatea.svg)](https://david-dm.org/eslint-community/eslint-plugin-mysticatea)
 
-Additional ESLint rules and ESLint configurations for me.
+Additional ESLint rules and ESLint configurations for [@mysticatea](https://github.com/mysticatea).
 
 ## 💿 Installation
 
