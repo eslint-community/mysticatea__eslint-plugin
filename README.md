@@ -37,7 +37,7 @@ Write in your ESLint configurations: http://eslint.org/docs/user-guide/configuri
 - `plugin:@eslint-community/mysticatea/+modules` ... Additional configuration for ES modules.
 - `plugin:@eslint-community/mysticatea/+browser` ... Additional configuration for browser environment.
 - `plugin:@eslint-community/mysticatea/+node` ... Additional configuration for Node.js environment.
-- `plugin:@eslint-community/mysticatea/+eslint-plugin` ... Additional configuration for ESLint plugins. This includes `plugin:mysticatea/+node` setting.
+- `plugin:@eslint-community/mysticatea/+eslint-plugin` ... Additional configuration for ESLint plugins. This includes `plugin:@eslint-community/mysticatea/+node` setting.
 
 #### Details
 
