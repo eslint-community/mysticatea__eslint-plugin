@@ -6,7 +6,7 @@
 
 const fs = require("fs")
 const path = require("path")
-const { CLIEngine } = require("eslint")
+const { ESLint } = require("eslint")
 
 const targetFile = path.resolve(__dirname, "../lib/rules.js")
 
@@ -34,6 +34,5 @@ ${fs
 `
 )
 
-const linter = new CLIEngine({ fix: true })
-const result = linter.executeOnFiles([targetFile])
-CLIEngine.outputFixes(result)
+const linter = new ESLint({ fix: true })
+linter.lintFiles([targetFile]).then(([result]) => ESLint.outputFixes(result))
