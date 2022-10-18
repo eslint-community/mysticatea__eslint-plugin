@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/@eslint-community/eslint-plugin-mysticatea.svg)](https://www.npmjs.com/package/@eslint-community/eslint-plugin-mysticatea)
 [![Downloads/month](https://img.shields.io/npm/dm/@eslint-community/eslint-plugin-mysticatea.svg)](http://www.npmtrends.com/@eslint-community/eslint-plugin-mysticatea)
 [![Build Status](https://github.com/eslint-community/eslint-plugin-mysticatea/workflows/CI/badge.svg)](https://github.com/eslint-community/eslint-plugin-mysticatea/actions)
-[![codecov](https://codecov.io/gh/eslint-community/eslint-plugin-mysticatea/branch/master/graph/badge.svg)](https://codecov.io/gh/eslint-community/eslint-plugin-mysticatea)
+[![codecov](https://codecov.io/gh/eslint-community/eslint-plugin-mysticatea/branch/main/graph/badge.svg)](https://codecov.io/gh/eslint-community/eslint-plugin-mysticatea)
 [![Dependency Status](https://david-dm.org/eslint-community/eslint-plugin-mysticatea.svg)](https://david-dm.org/eslint-community/eslint-plugin-mysticatea)
 
 Additional ESLint rules and ESLint configurations for [@mysticatea](https://github.com/mysticatea).
