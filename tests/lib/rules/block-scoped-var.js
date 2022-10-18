@@ -5,7 +5,7 @@
  */
 "use strict"
 
-const RuleTester = require("eslint").RuleTester
+const { RuleTester } = require("eslint")
 const rule = require("../../../lib/rules/block-scoped-var")
 new RuleTester().run("block-scoped-var", rule, {
     valid: [

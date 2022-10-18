@@ -5,7 +5,7 @@
  */
 "use strict"
 
-const RuleTester = require("eslint").RuleTester
+const { RuleTester } = require("eslint")
 const rule = require("../../../lib/rules/arrow-parens")
 new RuleTester({ parserOptions: { ecmaVersion: 2015 } }).run(
     "arrow-parens",
