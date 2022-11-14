@@ -15,7 +15,10 @@ on:
 
 jobs:
     lint:
-        name: ⬣ Lint
+        name: ⬣ Lint (ESLint@${{ matrix.eslint }})
+        strategy:
+            matrix:
+                eslint: [6, 7]
         runs-on: ubuntu-latest
         steps:
             - name: 🛑 Cancel Previous Runs
@@ -31,6 +34,9 @@ jobs:
 
             - name: 📥 Install dependencies
               run: npm install
+
+            - name: 📥 Install ESLint v${{ matrix.eslint }}
+              run: npm install --save-dev eslint@${{ matrix.eslint }}
 
             - name: ▶️ Run lint script
               run: npm run lint
