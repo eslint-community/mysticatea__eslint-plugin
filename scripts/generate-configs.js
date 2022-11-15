@@ -29,4 +29,4 @@ ${fs
 )
 
 const linter = new ESLint({ fix: true })
-linter.lintFiles([targetFile]).then(([result]) => ESLint.outputFixes(result))
+linter.lintFiles([targetFile]).then((results) => ESLint.outputFixes(results))
