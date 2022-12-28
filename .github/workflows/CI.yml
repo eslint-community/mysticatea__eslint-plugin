@@ -48,7 +48,7 @@ jobs:
         strategy:
             matrix:
                 eslint: [8]
-                node: [12.22.0, 12, 14.17.0, 14, 16, 18]
+                node: [12.22.0, 12, 14.17.0, 14, 16, 18, 19]
                 os: [ubuntu-latest]
                 include:
                     # On other platforms
