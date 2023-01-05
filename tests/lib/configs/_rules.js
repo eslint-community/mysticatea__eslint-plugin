@@ -12,6 +12,7 @@ const {
     rules: PluginRulesIndex,
 } = require("@eslint-community/eslint-plugin-mysticatea")
 const { rules: removedRules } = require("./eslint-replacements.json")
+const { rules: prettierConfigRules } = require("eslint-config-prettier")
 
 const coreRules = new Linter().getRules()
 const pluginRules = new Map(
@@ -45,10 +46,12 @@ module.exports = {
         )
 
         /* istanbul ignore next */
-        for (const ruleId of [].concat(
-            Object.keys(config.rules || {}),
-            ...(config.overrides || []).map((c) => Object.keys(c.rules || {}))
-        )) {
+        for (const [ruleId, ruleConf] of [
+            config.rules,
+            ...(config.overrides || []).map((c) => c.rules),
+        ]
+            .filter(Boolean)
+            .flatMap((r) => Object.entries(r))) {
             const rule = allRules.get(ruleId)
             if (rule == null) {
                 throw new Error(`The '${ruleId}' rule does not exist.`)
@@ -58,6 +61,21 @@ module.exports = {
             }
             if (removedRuleNames.has(ruleId)) {
                 throw new Error(`The '${ruleId}' rule was removed.`)
+            }
+            const originalRuleId = ruleId.includes("/")
+                ? `${ruleId
+                      .replace(/^@eslint-community\/mysticatea\//u, "")
+                      .replace(/^ts\//u, "@typescript-eslint/")}`
+                : ruleId
+            if (prettierConfigRules[originalRuleId] != null) {
+                const severity = Array.isArray(ruleConf)
+                    ? ruleConf[0]
+                    : ruleConf
+                if (severity != null && severity !== 0 && severity !== "off") {
+                    throw new Error(
+                        `The '${ruleId}' rule conflicts with prettier and should be turned 'off'.`
+                    )
+                }
             }
         }
     },
