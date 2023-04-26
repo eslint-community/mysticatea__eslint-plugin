@@ -32,7 +32,7 @@
     "scripts": {
         "clean": "rimraf .nyc_output coverage",
         "coverage": "opener coverage/lcov-report/index.html",
-        "format": "prettier -w .",
+        "format": "prettier -w . && npm run lint -- --fix",
         "lint": "eslint lib scripts tests",
         "test": "nyc mocha \"tests/lib/**/*.js\" --reporter dot",
         "update": "node scripts/generate-browser-globals && node scripts/generate-configs && node scripts/generate-rules",
