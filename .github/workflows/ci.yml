@@ -14,13 +14,14 @@ on:
         - cron: 0 0 * * 0
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
 
 jobs:
     lint:
         name: ⬣ Lint (ESLint@${{ matrix.eslint }})
         strategy:
+            fail-fast: false
             matrix:
                 eslint: [6, 7, 8]
         runs-on: ubuntu-latest
