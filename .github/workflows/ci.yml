@@ -48,6 +48,7 @@ jobs:
             🧪 Test (Node@${{ matrix.node }} - ESLint@${{ matrix.eslint }} - ${{
             matrix.os }})
         strategy:
+            fail-fast: false
             matrix:
                 eslint: [8]
                 node: [12.22.0, 12, 14.17.0, 14, 16, 18, 19, 20]
