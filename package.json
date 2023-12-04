@@ -56,7 +56,7 @@
     "devDependencies": {
         "@eslint-community/eslint-plugin-mysticatea": "file:.",
         "@eslint/eslintrc": "^2.1.1",
-        "eslint": "~8.48.0",
+        "eslint": "~8.55.0",
         "eslint-config-prettier": "^8.9.0",
         "globals": "^13.20.0",
         "mocha": "^9.2.2",
